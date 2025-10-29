@@ -26,8 +26,10 @@ const Board = () => {
   };
 
   const isWinner = checkWinner();
+  const isDraw = !isWinner && state.every((square) => square !== null);
 
   const handleClick = (index) => {
+    if (state[index] !== null ) return;
     const copyState = [...state];
     copyState[index] = isXTurn ? "X" : "O";
     setState(copyState);
@@ -42,7 +44,7 @@ const Board = () => {
       {isWinner ? (
         <>
           <h2 className="text-5xl font-extrabold  text-gradient-to-r from-yellow-400 via-pink-500 to-purple-600">
-            🏆 {isWinner} Wins the Game!
+            🏆 Player {isWinner} Wins the Game!
           </h2>
 
           <button
@@ -52,9 +54,21 @@ const Board = () => {
             Play Again
           </button>
         </>
+      ) : isDraw ? (
+        <>
+          <h2 className="text-4xl font-extrabold text-gray-700">
+          ohh! It's a Draw.
+          </h2>
+          <button
+            onClick={handleReset}
+            className="mt-6 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold shadow-lg hover:opacity-80"
+          >
+            Play Again
+          </button>
+        </>
       ) : (
         <>
-          <div className="text-gray-800 text-2xl font-semibold mb-4">
+          <div  className="text-3xl font-extrabold pb-2  ">
             Player {isXTurn ? "X" : "O"}'s turn
           </div>
           <div className="board-row flex justify-evenly items-center">
@@ -72,6 +86,12 @@ const Board = () => {
             <Square onClick={() => handleClick(7)} value={state[7]} />
             <Square onClick={() => handleClick(8)} value={state[8]} />
           </div>
+          <button
+            onClick={handleReset}
+            className="mt-6 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold shadow-lg hover:opacity-80 "
+          >
+          Reset Game
+          </button>
         </>
       )}
     </div>
