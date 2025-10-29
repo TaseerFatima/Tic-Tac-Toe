@@ -68,7 +68,7 @@ const Board = () => {
         </>
       ) : (
         <>
-          <div  className="text-3xl font-extrabold pb-2  ">
+          <div  className="text-3xl font-extrabold pb-6 ">
             Player {isXTurn ? "X" : "O"}'s turn
           </div>
           <div className="board-row flex justify-evenly items-center">
