@@ -13,8 +13,8 @@ const Square = (props) => {
       {value === "X" && (
         <div className="relative w-12 h-12">
           
-          <span className="absolute top-0 left-1/2 w-1 h-full bg-indigo-600 transform -translate-x-1/2 rotate-45 rounded"></span>
-          <span className="absolute top-0 left-1/2 w-1 h-full bg-indigo-600 transform -translate-x-1/2 -rotate-45 rounded"></span>
+          <span className="absolute top-0 left-1/2 w-1 h-full bg-indigo-600  rotate-45 rounded"></span>
+          <span className="absolute top-0 left-1/2 w-1 h-full bg-indigo-600 -rotate-45 rounded"></span>
         </div>
       )}
       {value === "O" && (
